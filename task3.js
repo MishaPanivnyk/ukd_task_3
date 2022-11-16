@@ -58,7 +58,7 @@ let thousands = [
   "eight thousands",
   "nive thousands",
 ];
-// Перетворення тисяч
+
 function transformThousands(num) {
   if (num >= 1000)
     return (
@@ -67,21 +67,18 @@ function transformThousands(num) {
   else return transformHundreds(num);
 }
 
-// Перетворення сотень
 function transformHundreds(num) {
   if (num >= 100)
     return hundreds[Math.floor(num / 100)] + " " + transformTens(num % 100);
   else return transformTens(num);
 }
 
-// Перетворення десяток і одиниць
 function transformTens(num) {
   if (num >= 11 && num <= 19) return teens[num - 10];
   else if (num >= 10) return tens[Math.floor(num / 10)] + " " + ones[num % 10];
   else if (num < 10) return ones[num % 10];
 }
 
-// Перевірка області визначення та перетворення нулів
 function transform(num) {
   if (num > 9999 || num < -9999)
     return "Number outside the scope of definitions";
@@ -94,7 +91,6 @@ function transform(num) {
   }
 }
 
-// Введені числа
 let arrNumber = [0, 7, -5, 21, 16, -93, 48, 99884, -11, 10000000];
 for (let i = 0; i < arrNumber.length; i++)
   console.log(arrNumber[i] + " -- " + transform(arrNumber[i]));
